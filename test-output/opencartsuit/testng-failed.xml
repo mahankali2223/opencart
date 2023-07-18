@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [opencartsuit]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="opencartTest(failed)">
+    <classes>
+      <class name="testcases.TC001_AccountRegistrationTest">
+        <methods>
+          <include name="test_account_Registration"/>
+          <include name="setup"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- testcases.TC001_AccountRegistrationTest -->
+    </classes>
+  </test> <!-- opencartTest(failed) -->
+</suite> <!-- Failed suite [opencartsuit] -->
