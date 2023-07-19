@@ -52,10 +52,13 @@ public class CoderedRegister extends Baseclass {
     @FindBy(xpath = "(//button[@type='button'])[1]")
     WebElement nxtbtn;
     
+    @FindBy(xpath = "div.loader")
+    WebElement spinner;
+    
     
     public void clickGetfreeaccess() {
     	mywait.until(ExpectedConditions.elementToBeClickable(getfree)).click();
-		mywait.until(ExpectedConditions.elementToBeClickable(chkbox)).click();
+    	mywait.until(ExpectedConditions.invisibilityOf(spinner));
 	}
     
     public void setfirstname(String fname) {
@@ -97,7 +100,9 @@ public class CoderedRegister extends Baseclass {
     }
     
     public void submit() {
+    	mywait.until(ExpectedConditions.elementToBeClickable(chkbox)).click();
     	mywait.until(ExpectedConditions.elementToBeClickable(submit)).click();
+    	mywait.until(ExpectedConditions.invisibilityOf(spinner));
 	}
     
     
@@ -111,6 +116,7 @@ public class CoderedRegister extends Baseclass {
     
     public void strtbutton() {
     	mywait.until(ExpectedConditions.elementToBeClickable(strtbtn)).click();
+    	mywait.until(ExpectedConditions.invisibilityOf(spinner));
 	}
     
     public void options() {
@@ -124,6 +130,7 @@ public class CoderedRegister extends Baseclass {
     
     public void nextbtn() {
     	mywait.until(ExpectedConditions.elementToBeClickable(nxtbtn)).click();
+    	mywait.until(ExpectedConditions.invisibilityOf(spinner));
 	}
     
 }

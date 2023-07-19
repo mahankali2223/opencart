@@ -16,6 +16,7 @@ public class TC002_coderedRegister extends Basepageclass {
 		try {
 			
 			CoderedRegister code= new CoderedRegister(driver);
+			Thread.sleep(10000);
 			code.closepopup();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 			code.clickGetfreeaccess();
@@ -23,17 +24,23 @@ public class TC002_coderedRegister extends Basepageclass {
 			code.setfirstname(name);
 			code.setemail(randomeString()+"@gmail.com");
 			code.setpassword(randomAlphaNumeric());
-			code.closepopup();
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 			code.clickCountry();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 			code.clickoption("India");
-			code.closepopup();
 			code.submit();
 		    String confirm =code.getSucessMsg();
+		    // Checking Message on screen
 		    String msg = "Welcome To EC-Council Learning, "+name+"!";
-			Assert.assertEquals(confirm, msg);
+		    Assert.assertEquals(confirm, msg);
+		    // Checking title
+		    String title = driver.getTitle();
+		    Assert.assertEquals(title, "Welcome | EC-Council Learning");
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 			code.strtbutton();
+			// Checking title
+//		    String title = driver.getTitle();
+//		    Assert.assertEquals(title, "Add title here");
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 			code.options();
 			code.nextbtn();

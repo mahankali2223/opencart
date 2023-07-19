@@ -32,7 +32,7 @@ public class Basepageclass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		driver.get("https://codered.eccouncil.org/?logged=false");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		
 	}
 	
@@ -50,7 +50,7 @@ public class Basepageclass {
 	public String randomAlphaNumeric() {
 		String st = RandomStringUtils.randomAlphabetic(4);
 		String num = RandomStringUtils.randomNumeric(3);
-		return (st+"@"+num);
+		return (st+"A@"+num);
 	}
 	
 //	public String randomeNumber() {
