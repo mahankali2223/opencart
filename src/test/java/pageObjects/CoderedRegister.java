@@ -123,8 +123,11 @@ public class CoderedRegister extends Baseclass {
     	}
     }
     
-    public void submit() {
+    public void clickCheckbox() {
     	mywait.until(ExpectedConditions.elementToBeClickable(chkbox)).click();
+    }
+    
+    public void clickSubmit() {
     	mywait.until(ExpectedConditions.elementToBeClickable(submit)).click();
 	}
     

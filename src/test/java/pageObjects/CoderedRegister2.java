@@ -43,9 +43,11 @@ public class CoderedRegister2 extends Baseclass {
     	mywait.until(ExpectedConditions.elementToBeClickable(psswrd)).sendKeys(passwrd);
     }
     
-    public void submit() {
+    public void clickCheckbox() {
     	mywait.until(ExpectedConditions.elementToBeClickable(chkbox)).click();
+    }
+    
+    public void clickSubmit() {
     	mywait.until(ExpectedConditions.elementToBeClickable(submit)).click();
 	}
-
 }

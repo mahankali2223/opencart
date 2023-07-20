@@ -24,7 +24,8 @@ public class TC002_coderedRegister extends Basepageclass {
 			code.setpassword(code.randomAlphaNumeric());
 			code.clickCountry();
 			code.clickoption("India");
-			code.submit();
+			code.clickCheckbox();
+			code.clickSubmit();
 			code.closeAds();
 			code.proceedToNextStep();
 			

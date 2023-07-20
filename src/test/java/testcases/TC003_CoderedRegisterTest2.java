@@ -20,7 +20,8 @@ public class TC003_CoderedRegisterTest2 extends Basepageclass {
 			Regpage.setfirstname(code.name);
 			Regpage.setemail(code.name+"@gmail.com");
 			Regpage.setpassword(code.randomAlphaNumeric());
-			Regpage.submit();
+			Regpage.clickCheckbox();
+			Regpage.clickSubmit();
 			code.closeAds();
 			code.proceedToNextStep();
 			
