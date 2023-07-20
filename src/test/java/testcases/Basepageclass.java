@@ -42,17 +42,6 @@ public class Basepageclass {
 		
 	}
 	
-	public String randomeString() {
-		String generatedString = RandomStringUtils.randomAlphabetic(5);
-		return (generatedString);
-	}
-	
-	public String randomAlphaNumeric() {
-		String st = RandomStringUtils.randomAlphabetic(4);
-		String num = RandomStringUtils.randomNumeric(3);
-		return (st+"A@"+num);
-	}
-	
 //	public String randomeNumber() {
 //		String generatedString2 = RandomStringUtils.randomNumeric(10);
 //		return (generatedString2);

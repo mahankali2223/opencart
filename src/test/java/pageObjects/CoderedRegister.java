@@ -3,18 +3,33 @@ package pageObjects;
 import java.time.Duration;
 import java.util.List;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class CoderedRegister extends Baseclass {
 	
 	public CoderedRegister(WebDriver driver) {
 		super(driver);
 	}
+	
+	public String randomString() {
+		String generatedString = RandomStringUtils.randomAlphabetic(5);
+		return (generatedString);
+	}
+	
+	public String randomAlphaNumeric() {
+		String st = RandomStringUtils.randomAlphabetic(4);
+		String num = RandomStringUtils.randomNumeric(3);
+		return (st+"Aa@"+num);
+	}
+	
+	public String name = this.randomString();
 	
 	WebDriverWait mywait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	
@@ -55,6 +70,14 @@ public class CoderedRegister extends Baseclass {
     @FindBy(xpath = "div.loader")
     WebElement spinner;
     
+    @FindBy(xpath = "//a[text()='Go To Dashboard']")
+    WebElement dashboard;
+    
+    @FindBy(xpath = "//h1")
+    WebElement thankMsg;
+    
+    @FindBy(xpath = "//app-right-side-header//h2")
+    WebElement dashboardMsg;
     
     public void clickGetfreeaccess() {
     	mywait.until(ExpectedConditions.elementToBeClickable(getfree)).click();
@@ -92,9 +115,10 @@ public class CoderedRegister extends Baseclass {
     		}
 	}
     
-    public void closepopup() {
+    public void closeAds() {
+    	// waiting for page to load
+    	mywait.until(ExpectedConditions.invisibilityOf(spinner));
     	if(closebtn.isDisplayed()){
-    		System.out.println("Popup is visible");
     		mywait.until(ExpectedConditions.elementToBeClickable(closebtn)).click();
     	}
     }
@@ -102,7 +126,6 @@ public class CoderedRegister extends Baseclass {
     public void submit() {
     	mywait.until(ExpectedConditions.elementToBeClickable(chkbox)).click();
     	mywait.until(ExpectedConditions.elementToBeClickable(submit)).click();
-    	mywait.until(ExpectedConditions.invisibilityOf(spinner));
 	}
     
     
@@ -116,13 +139,11 @@ public class CoderedRegister extends Baseclass {
     
     public void strtbutton() {
     	mywait.until(ExpectedConditions.elementToBeClickable(strtbtn)).click();
-    	mywait.until(ExpectedConditions.invisibilityOf(spinner));
 	}
     
-    public void options() {
+    public void options(int numberofoptions) {
     	List<WebElement> list = driver.findElements(By.xpath("//div[@class='py-2 primary font-semi-bold']"));
-    	int totaloptions = list.size();
-    	for(int i=0; i<totaloptions-5;i++) {
+    	for(int i=0; i<numberofoptions;i++) {
     		mywait.until(ExpectedConditions.elementToBeClickable(list.get(i))).click();
     	}
     	
@@ -130,7 +151,82 @@ public class CoderedRegister extends Baseclass {
     
     public void nextbtn() {
     	mywait.until(ExpectedConditions.elementToBeClickable(nxtbtn)).click();
-    	mywait.until(ExpectedConditions.invisibilityOf(spinner));
 	}
+    
+    public void selectCareerGoals(int numOfOptions) {
+    	List<WebElement> list = driver.findElements(By.xpath("//label/p"));
+    	for(int i=0; i<numOfOptions;i++) {
+    		mywait.until(ExpectedConditions.elementToBeClickable(list.get(i))).click();
+    	}
+    }
+    
+//    public void clickdashboard(WebElement buttonName) {
+//    	mywait.until(ExpectedConditions.elementToBeClickable(buttonName)).click();
+//	}
+    
+    public void clickdashboard() {
+    	mywait.until(ExpectedConditions.elementToBeClickable(dashboard)).click();
+	}
+    
+    public String getThanksMsg() {
+		try {
+			return (mywait.until(ExpectedConditions.visibilityOf(thankMsg)).getText());
+		} catch (Exception e) {
+			return (e.getMessage());
+		}
+	}
+    
+    public String getDashboardMsg() {
+		try {
+			return (mywait.until(ExpectedConditions.visibilityOf(dashboardMsg)).getText());
+		} catch (Exception e) {
+			return (e.getMessage());
+		}
+	}
+    
+    public void proceedToNextStep() throws InterruptedException {
+    	try {
+    		String confirm = getSucessMsg();
+		    // Checking Message on screen
+		    String msg = "Welcome To EC-Council Learning, "+name+"!";
+		    Assert.assertEquals(confirm, msg);
+		    // Checking title
+		    Assert.assertEquals(driver.getTitle(), "Welcome | EC-Council Learning");
+			this.strtbutton();
+			this.closeAds();
+			// Checking title
+			Assert.assertEquals(driver.getTitle(), "quiz | EC-Council Learning");
+			this.options(4);
+			this.nextbtn();
+			this.closeAds();
+			Assert.assertEquals(driver.getTitle(), "quiz | EC-Council Learning");
+			this.options(1);
+			this.nextbtn();
+			this.closeAds();
+			Assert.assertEquals(driver.getTitle(), "quiz | EC-Council Learning");
+			this.selectCareerGoals(1);
+			this.nextbtn();
+			this.closeAds();
+			Assert.assertEquals(driver.getTitle(), "quiz | EC-Council Learning");
+			this.options(3);
+			this.nextbtn();
+			this.closeAds();
+			String thankYouMsg =this.getThanksMsg();
+		    // Checking Message on screen
+		    String mesg = "Thank You, "+name+"!";
+		    Assert.assertEquals(thankYouMsg, mesg);
+			Assert.assertEquals(driver.getTitle(), "Thanks | EC-Council Learning");
+			this.clickdashboard();
+			this.closeAds();
+			String dashboardMsg =this.getDashboardMsg();
+		    // Checking Message on screen
+		    String messg = "Welcome, "+name+"!";
+		    Assert.assertEquals(dashboardMsg, messg);
+			Assert.assertEquals(driver.getTitle(), "Course | Dashboard | EC-Council Learning");
+    	}catch(Exception e){
+			System.out.println(e);
+			Assert.fail();
+		 }
+    }
     
 }

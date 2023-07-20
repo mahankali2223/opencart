@@ -26,17 +26,17 @@ public class TC001_AccountRegistrationTest extends Basepageclass{
 		logger.info("Providing customer data");
     //  regpage.setUserName(randomeString().toUpperCase());
 		
-		regpage.setFirstName(randomeString().toUpperCase());
-		
-		regpage.setLastName(randomeString().toUpperCase());
-		
-		regpage.setEmail(randomeString()+"@gmail.com");
+//		regpage.setFirstName(randomeString().toUpperCase());
+//		
+//		regpage.setLastName(randomeString().toUpperCase());
+//		
+//		regpage.setEmail(randomeString()+"@gmail.com");
 		
 //		regpage.clickCountryDrp();
 		
 //		regpage.selectDropDown();
 		
-		regpage.setPassword(randomAlphaNumeric());
+//		regpage.setPassword(randomAlphaNumeric());
 		
         regpage.setPrivacyPolicy();
         logger.info("Clicked on setprivacy");
