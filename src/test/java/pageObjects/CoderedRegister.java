@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -79,6 +80,12 @@ public class CoderedRegister extends Baseclass {
     @FindBy(xpath = "//app-right-side-header//h2")
     WebElement dashboardMsg;
     
+    @FindBy(xpath = "//div[@id=\"navbarSupportedContent\"] //div[@ngbdropdown]")
+    WebElement profileIcon;
+    
+    @FindBy(xpath = "//button[text()='Log Out']")
+    WebElement logOutbtn;
+    
     public void clickGetfreeaccess() {
     	mywait.until(ExpectedConditions.elementToBeClickable(getfree)).click();
     	mywait.until(ExpectedConditions.invisibilityOf(spinner));
@@ -89,6 +96,7 @@ public class CoderedRegister extends Baseclass {
     }
     
     public void setemail(String Email) {
+    	mywait.until(ExpectedConditions.elementToBeClickable(email)).clear();
     	mywait.until(ExpectedConditions.elementToBeClickable(email)).sendKeys(Email);
     }
     
@@ -187,6 +195,15 @@ public class CoderedRegister extends Baseclass {
 		}
 	}
     
+    public void clickProfileIcon() {
+    	mywait.until(ExpectedConditions.elementToBeClickable(profileIcon)).click();
+	}
+    
+    public void clickLogoutBtn() {
+    	JavascriptExecutor js = (JavascriptExecutor)driver;
+    	js.executeScript("arguments[0].click();",logOutbtn);
+	}
+    
     public void proceedToNextStep() throws InterruptedException {
     	try {
     		String confirm = getSucessMsg();
@@ -232,4 +249,8 @@ public class CoderedRegister extends Baseclass {
 		 }
     }
     
+    public void logout() {
+    	 this.clickProfileIcon();
+    	 this.clickLogoutBtn();
+    }   
 }
