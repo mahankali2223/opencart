@@ -1,4 +1,4 @@
-package testcases;
+package registerTestcases;
 
 import java.io.File;
 import java.io.IOException;
@@ -63,7 +63,6 @@ public class Basepageclass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		driver.get(rb.getString("appurl"));
-		driver.get("https://codered.eccouncil.org/?logged=false");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		
 	}
@@ -91,11 +90,11 @@ public class Basepageclass {
 
 	}
 	
-//	public String randomeNumber() {
-//		String generatedString2 = RandomStringUtils.randomNumeric(10);
-//		return (generatedString2);
-//	
+//	public void navigate() {
+//		if(driver.getCurrentUrl() != rb.getString("appurl")) {
+//			driver.get(rb.getString("appurl"));
+//			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+//		}
 //	}
-//	
 
 }

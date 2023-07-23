@@ -5,22 +5,15 @@
     <listener class-name="utilities.ExtentReportManager"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
-    <parameter name="browser" value="chrome1"/>
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="testcases.TC003_CoderedRegisterTest2">
+      <class name="registerTestcases.TC006_RegisterFormNegative">
         <methods>
-          <include name="setup"/>
-          <include name="Eccodered_test_Registration2"/>
           <include name="teardown"/>
-        </methods>
-      </class> <!-- testcases.TC003_CoderedRegisterTest2 -->
-      <class name="testcases.TC002_coderedRegister">
-        <methods>
-          <include name="Codered_test_Registration"/>
           <include name="setup"/>
-          <include name="teardown"/>
+          <include name="Test01_EmailNegative"/>
         </methods>
-      </class> <!-- testcases.TC002_coderedRegister -->
+      </class> <!-- registerTestcases.TC006_RegisterFormNegative -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

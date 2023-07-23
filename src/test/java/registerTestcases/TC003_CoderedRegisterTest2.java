@@ -1,4 +1,4 @@
-package testcases;
+package registerTestcases;
 
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 
@@ -16,16 +16,17 @@ public class TC003_CoderedRegisterTest2 extends Basepageclass {
 		
 		try {
 			System.out.println("Testcase2");
-			CoderedRegister2 Regpage = new CoderedRegister2(driver);
+			CoderedRegister2 regPage = new CoderedRegister2(driver);
 			CoderedRegister code= new CoderedRegister(driver);
+//			this.navigate();
 			Thread.sleep(10000);
 			code.closeAds();
-			Regpage.setfirstname(code.name);
-			Regpage.setemail(code.name+"@gmail.com");
-			Regpage.setpassword(code.randomAlphaNumeric());
-			Regpage.clickCheckbox();
-			Regpage.clickSubmit();
-			code.closeAds();
+			regPage.sendKeys(regPage.firstname, code.name);
+			regPage.sendKeys(regPage.email, code.name+"@gmail.com");
+			regPage.sendKeys(regPage.psswrd, regPage.randomAlphaNumeric());
+			regPage.click(regPage.chkbox);
+			regPage.click(regPage.submit);
+			regPage.closeAds();
 			code.proceedToNextStep();
 			code.logout();
 			

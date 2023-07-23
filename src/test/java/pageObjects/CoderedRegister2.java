@@ -13,41 +13,26 @@ public class CoderedRegister2 extends Baseclass {
 	public CoderedRegister2(WebDriver driver) {
 		super(driver);
 	}
-	
-	WebDriverWait mywait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	 
 	@FindBy(xpath ="(//input[@placeholder='First Name'])[1]")
-	WebElement firstname;
+	public WebElement firstname;
 	
 	@FindBy(xpath ="(//input[@placeholder='Email'])[1]")
-	WebElement email;
+	public WebElement email;
 	
 	@FindBy(xpath ="(//input[@placeholder='Password'])[1]")
-	WebElement psswrd;
+	public WebElement psswrd;
 	
 	@FindBy(xpath = "(//input[@type='checkbox'])[1]")
-	WebElement chkbox;
+	public WebElement chkbox;
 	    
 	@FindBy(xpath = "(//button[@type='submit'])[1]")
-    WebElement submit;
+	public WebElement submit;
 	
-	public void setfirstname(String fname) {
-    	mywait.until(ExpectedConditions.elementToBeClickable(firstname)).sendKeys(fname);
-    }
-    
-    public void setemail(String Email) {
-    	mywait.until(ExpectedConditions.elementToBeClickable(email)).sendKeys(Email);
-    }
-    
-    public void setpassword(String passwrd) {
-    	mywait.until(ExpectedConditions.elementToBeClickable(psswrd)).sendKeys(passwrd);
-    }
-    
-    public void clickCheckbox() {
-    	mywait.until(ExpectedConditions.elementToBeClickable(chkbox)).click();
-    }
-    
-    public void clickSubmit() {
-    	mywait.until(ExpectedConditions.elementToBeClickable(submit)).click();
-	}
+	@FindBy(xpath = "//input[@placeholder=\"Email\"]/following-sibling::small //span[@class=\"badge tertiary\"]")
+	public WebElement invalidEmail;
+	    
+	@FindBy(xpath = "//span[@patternalidationerror]")
+	public WebElement invalidPasswrd;
+	
 }
