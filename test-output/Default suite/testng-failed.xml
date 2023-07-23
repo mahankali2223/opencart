@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testcases.TC002_coderedRegister">
+      <class name="registerTestcases.TC006_RegisterFormNegative">
         <methods>
-          <include name="codered_test_Registration"/>
-          <include name="setup"/>
           <include name="teardown"/>
+          <include name="setup"/>
+          <include name="Test03_SubmitBtnNegative"/>
         </methods>
-      </class> <!-- testcases.TC002_coderedRegister -->
+      </class> <!-- registerTestcases.TC006_RegisterFormNegative -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -11,7 +11,7 @@
         <methods>
           <include name="teardown"/>
           <include name="setup"/>
-          <include name="Test01_EmailNegative"/>
+          <include name="Test03_SubmitBtnNegative"/>
         </methods>
       </class> <!-- registerTestcases.TC006_RegisterFormNegative -->
     </classes>

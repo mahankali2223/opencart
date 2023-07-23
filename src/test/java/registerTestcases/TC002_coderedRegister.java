@@ -18,6 +18,7 @@ public class TC002_coderedRegister extends Basepageclass {
 			Thread.sleep(10000);
 			code.closeAds();
 			code.click(code.getfree);
+			code.closeAds();
 			code.sendKeys(code.firstname, code.name);
 			code.sendKeys(code.email, code.name+"@gmail.com");
 			code.sendKeys(code.psswrd, code.randomAlphaNumeric());

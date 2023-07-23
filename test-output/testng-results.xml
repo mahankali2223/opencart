@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="4" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-07-23T18:17:24 IST" name="Suite" finished-at="2023-07-23T18:18:19 IST" duration-ms="54021">
+  <suite started-at="2023-07-24T01:11:42 IST" name="Suite" finished-at="2023-07-24T01:12:39 IST" duration-ms="57208">
     <groups>
     </groups>
-    <test started-at="2023-07-23T18:17:24 IST" name="Test" finished-at="2023-07-23T18:18:19 IST" duration-ms="54021">
-      <class name="login.TC001_Loginpage">
-        <test-method signature="Codered_test_Registration()[pri:0, instance:login.TC001_Loginpage@7e057f43]" started-at="2023-07-23T18:18:18 IST" name="Codered_test_Registration" finished-at="2023-07-23T18:18:18 IST" duration-ms="7" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Codered_test_Registration -->
-      </class> <!-- login.TC001_Loginpage -->
+    <test started-at="2023-07-24T01:11:42 IST" name="Test" finished-at="2023-07-24T01:12:39 IST" duration-ms="57208">
       <class name="registerTestcases.TC006_RegisterFormNegative">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:registerTestcases.TC006_RegisterFormNegative@14028087]" started-at="2023-07-23T18:17:25 IST" name="setup" finished-at="2023-07-23T18:17:36 IST" duration-ms="11080" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:registerTestcases.TC006_RegisterFormNegative@7ce69770]" started-at="2023-07-24T01:11:42 IST" name="setup" finished-at="2023-07-24T01:11:48 IST" duration-ms="6435" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -24,11 +18,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="Test01_EmailNegative()[pri:0, instance:registerTestcases.TC006_RegisterFormNegative@14028087]" started-at="2023-07-23T18:17:36 IST" name="Test01_EmailNegative" finished-at="2023-07-23T18:18:18 IST" duration-ms="41658" status="PASS">
+        <test-method signature="Test03_SubmitBtnNegative()[pri:2, instance:registerTestcases.TC006_RegisterFormNegative@7ce69770]" started-at="2023-07-24T01:11:49 IST" name="Test03_SubmitBtnNegative" finished-at="2023-07-24T01:12:39 IST" duration-ms="50020" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Test01_EmailNegative -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:registerTestcases.TC006_RegisterFormNegative@14028087]" started-at="2023-07-23T18:18:18 IST" name="teardown" finished-at="2023-07-23T18:18:19 IST" duration-ms="565" status="PASS">
+        </test-method> <!-- Test03_SubmitBtnNegative -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:registerTestcases.TC006_RegisterFormNegative@7ce69770]" started-at="2023-07-24T01:12:39 IST" name="teardown" finished-at="2023-07-24T01:12:39 IST" duration-ms="380" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
