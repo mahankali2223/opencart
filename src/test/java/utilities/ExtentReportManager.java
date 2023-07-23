@@ -14,7 +14,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-import testcases.Basepageclass;
+import registerTestcases.Basepageclass;
 
 public class ExtentReportManager implements ITestListener {
 	

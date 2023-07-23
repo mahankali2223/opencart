@@ -7,8 +7,8 @@
   <test thread-count="5" name="Test">
   <parameter name="browser" value="chrome"/>
     <classes>
-    	<class name="testcases.TC002_coderedRegister"/>
-    	<class name="testcases.TC003_CoderedRegisterTest2"/>
+    	<class name="registerTestcases.TC006_RegisterFormNegative"/>
+    	<class name="login.TC001_Loginpage"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
